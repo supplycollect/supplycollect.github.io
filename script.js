@@ -1,27 +1,27 @@
 const products = {
     stationery: [
-        { name: "Black Pen", price: 1.50, prepTime: 2, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231e293b' rx='12'/><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-size='48'>🖊️</text></svg>" },
-        { name: "Blue Pen", price: 1.50, prepTime: 2, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231e3a8a' rx='12'/><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-size='48'>🖊️</text></svg>" },
-        { name: "Red Pen", price: 1.50, prepTime: 2, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23991b1b' rx='12'/><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-size='48'>🖊️</text></svg>" },
-        { name: "Eraser", price: 0.80, prepTime: 2, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f43f5e' rx='12'/><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-size='48'>🧹</text></svg>" },
-        { name: "Sharpener", price: 1.00, prepTime: 3, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230284c7' rx='12'/><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-size='48'>✏️</text></svg>" },
-        { name: "Ruler", price: 1.20, prepTime: 3, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23d97706' rx='12'/><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-size='48'>📏</text></svg>" },
-        { name: "Whiteboard Marker", price: 2.00, prepTime: 3, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23334155' rx='12'/><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-size='48'>🖍️</text></svg>" }
+        { name: "Black Pen", price: 1.50, prepTime: 2, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' heigh[...]"},
+        { name: "Blue Pen", price: 1.50, prepTime: 2, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height[...]"},
+        { name: "Red Pen", price: 1.50, prepTime: 2, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height=[...]"},
+        { name: "Eraser", price: 0.80, prepTime: 2, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='[...]"},
+        { name: "Sharpener", price: 1.00, prepTime: 3, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' heigh[...]"},
+        { name: "Ruler", price: 1.20, prepTime: 3, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='1[...]"},
+        { name: "Whiteboard Marker", price: 2.00, prepTime: 3, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='10[...]"}
     ],
     rent: [
-        { name: "Scientific Calculator (Rent)", price: 3.00, prepTime: 8, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230f172a' rx='12'/><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-size='48'>🔢</text></svg>" },
-        { name: "Chromebook Charger (Rent)", price: 2.50, prepTime: 6, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231e293b' rx='12'/><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-size='48'>🔌</text></svg>" },
-        { name: "Mouse/Keyboard Set (Rent)", price: 4.00, prepTime: 10, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23334155' rx='12'/><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-size='48'>⌨️</text></svg>" }
+        { name: "Scientific Calculator (Rent)", price: 3.00, prepTime: 8, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><re[...]"},
+        { name: "Chromebook Charger (Rent)", price: 2.50, prepTime: 6, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect [...]"},
+        { name: "Mouse/Keyboard Set (Rent)", price: 4.00, prepTime: 10, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect[...]"}
     ],
     snacks: [
-        { name: "Orange Juice Box", price: 2.20, prepTime: 4, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23ea580c' rx='12'/><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-size='48'>🧃</text></svg>" },
-        { name: "Apple Juice Box", price: 2.20, prepTime: 4, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='100' fill='%2365a30d' rx='12'/><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-size='48'>🧃</text></svg>" },
-        { name: "Muesli Bar", price: 1.80, prepTime: 3, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23b45309' rx='12'/><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-size='48'>🍫</text></svg>" }
+        { name: "Orange Juice Box", price: 2.20, prepTime: 4, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='10[...]"},
+        { name: "Apple Juice Box", price: 2.20, prepTime: 4, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100[...]"},
+        { name: "Muesli Bar", price: 1.80, prepTime: 3, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' hei[...]"}
     ]
 };
 
 const blocks = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N"];
-const rooms = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
+const rooms = ["PS1", "AS1", "F9"];
 let selectedBlock = "";
 let selectedRoom = "";
 
@@ -319,7 +319,7 @@ function backToBlockStage() {
 
 function renderRoomGrid() {
     const grid = document.getElementById('roomGrid');
-    grid.innerHTML = rooms.map(r => `<button class="block-btn ${selectedRoom === r ? 'selected' : ''}" onclick="selectRoom('${r}')">${selectedBlock}${r}</button>`).join('');
+    grid.innerHTML = rooms.map(r => `<button class="block-btn ${selectedRoom === r ? 'selected' : ''}" onclick="selectRoom('${r}')">${r}</button>`).join('');
     document.getElementById('confirmRoomBtn').disabled = !selectedRoom;
 }
 
@@ -336,7 +336,7 @@ function placeOrder() {
     updateNav();
 
     document.getElementById('checkoutForm').style.display = 'none';
-    document.getElementById('orderConfirmText').textContent = `Your order will be ready for pickup at Block ${selectedBlock}, Room ${selectedBlock}${selectedRoom}!`;
+    document.getElementById('orderConfirmText').textContent = `Your order will be ready for pickup at Block ${selectedBlock}, Room ${selectedRoom}!`;
     document.getElementById('estimatedTimeDisplay').textContent = `${maxPrepTime} mins`;
     document.getElementById('orderConfirmBox').style.display = 'block';
 }
