@@ -1,22 +1,22 @@
 const products = {
     stationery: [
-        { name: "Black Pen", price: 1.50, prepTime: 2, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' heigh[...]"},
-        { name: "Blue Pen", price: 1.50, prepTime: 2, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height[...]"},
-        { name: "Red Pen", price: 1.50, prepTime: 2, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height=[...]"},
-        { name: "Eraser", price: 0.80, prepTime: 2, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='[...]"},
-        { name: "Sharpener", price: 1.00, prepTime: 3, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' heigh[...]"},
-        { name: "Ruler", price: 1.20, prepTime: 3, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='1[...]"},
-        { name: "Whiteboard Marker", price: 2.00, prepTime: 3, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='10[...]"}
+        { name: "Black Pen", price: 1.50, prepTime: 2, image: "images/black-pen.svg" },
+        { name: "Blue Pen", price: 1.50, prepTime: 2, image: "images/blue-pen.svg" },
+        { name: "Red Pen", price: 1.50, prepTime: 2, image: "images/red-pen.svg" },
+        { name: "Eraser", price: 0.80, prepTime: 2, image: "images/eraser.svg" },
+        { name: "Sharpener", price: 1.00, prepTime: 3, image: "images/sharpener.svg" },
+        { name: "Ruler", price: 1.20, prepTime: 3, image: "images/ruler.svg" },
+        { name: "Whiteboard Marker", price: 2.00, prepTime: 3, image: "images/marker.svg" }
     ],
     rent: [
-        { name: "Scientific Calculator (Rent)", price: 3.00, prepTime: 8, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><re[...]"},
-        { name: "Chromebook Charger (Rent)", price: 2.50, prepTime: 6, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect [...]"},
-        { name: "Mouse/Keyboard Set (Rent)", price: 4.00, prepTime: 10, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect[...]"}
+        { name: "Scientific Calculator (Rent)", price: 3.00, prepTime: 8, image: "images/calculator.svg" },
+        { name: "Chromebook Charger (Rent)", price: 2.50, prepTime: 6, image: "images/charger.svg" },
+        { name: "Mouse/Keyboard Set (Rent)", price: 4.00, prepTime: 10, image: "images/mouse-keyboard.svg" }
     ],
     snacks: [
-        { name: "Orange Juice Box", price: 2.20, prepTime: 4, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='10[...]"},
-        { name: "Apple Juice Box", price: 2.20, prepTime: 4, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100[...]"},
-        { name: "Muesli Bar", price: 1.80, prepTime: 3, image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' hei[...]"}
+        { name: "Orange Juice Box", price: 2.20, prepTime: 4, image: "images/orange-juice.svg" },
+        { name: "Apple Juice Box", price: 2.20, prepTime: 4, image: "images/apple-juice.svg" },
+        { name: "Muesli Bar", price: 1.80, prepTime: 3, image: "images/muesli-bar.svg" }
     ]
 };
 
@@ -204,7 +204,7 @@ function productCard(product, category, index) {
     return `
         <div class="product-card">
             <div>
-                <img class="product-image" src="${product.image}" alt="${product.name}">
+                <img class="product-image" src="${product.image}" alt="${product.name}" loading="lazy">
                 <div class="product-name">${product.name}</div>
                 <div class="product-time">⏱ Approx ${product.prepTime} mins</div>
             </div>
