@@ -365,4 +365,10 @@ function showToast(message) {
     }, 2000);
 }
 
-document.addEventListener("DOMContentLoaded", updateNav);
+// Ensure nav updates and room grid renders when appropriate
+document.addEventListener("DOMContentLoaded", () => {
+    updateNav();
+    if (document.getElementById('roomGrid')) {
+        try { renderRoomGrid(); } catch (e) { /* ignore if not available */ }
+    }
+});
