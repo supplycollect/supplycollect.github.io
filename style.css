@@ -1,7 +1,7 @@
 :root {
     --bg-main: #0B0F19;
-    --bg-surface: #1E293B;
-    --bg-surface-hover: #334155;
+    --bg-surface: hsl(217, 33%, 17%);
+    --bg-surface-hover: hsl(214, 93%, 6%);
     --border-color: #334155;
     --primary: #3B82F6;
     --primary-hover: #2563EB;
