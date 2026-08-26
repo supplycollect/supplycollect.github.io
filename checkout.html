@@ -11,19 +11,13 @@
     <div class="fullpage-top">
         <a href="cart.html" class="back-btn">&larr; Back to cart</a>
     </div>
+
     <div class="checkout-content" id="checkoutForm">
         <h2 style="color:var(--text-main); font-size:2rem; font-weight:700; margin-top:0;">Checkout</h2>
-        <div id="checkoutBlockStage">
-            <p style="color:var(--text-light); font-size:0.95rem; margin-bottom:16px;">Select your pickup block.</p>
-            <div class="block-grid" id="blockGrid"></div>
-            <button class="submit-btn" id="confirmBlockBtn" onclick="confirmBlock()" disabled>Confirm Location</button>
-        </div>
-        <div id="checkoutRoomStage" style="display:none;">
-            <p style="color:var(--text-light); font-size:0.95rem; margin-bottom:16px;">Select your pickup room.</p>
-            <div class="block-grid" id="roomGrid"></div>
-            <button class="submit-btn" id="confirmRoomBtn" onclick="placeOrder()" disabled>Confirm &amp; Place Order</button>
-            <button style="background:none; border:none; color:#60A5FA; cursor:pointer; width:100%; text-align:center; margin-top:12px;" onclick="backToBlockStage()">&larr; Change block</button>
-        </div>
+
+        <p style="color:var(--text-light); font-size:0.95rem; margin-bottom:16px;">Select your pickup room.</p>
+        <div class="block-grid" id="roomGrid"></div>
+        <button class="submit-btn" id="confirmRoomBtn" onclick="placeOrder()" disabled>Confirm &amp; Place Order</button>
     </div>
 
     <div class="order-confirm" id="orderConfirmBox" style="display:none;">
