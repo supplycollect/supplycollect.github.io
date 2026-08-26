@@ -20,9 +20,8 @@ const products = {
     ]
 };
 
-const blocks = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N"];
+// Only rooms — no blocks
 const rooms = ["PS1", "AS1", "F9"];
-let selectedBlock = "";
 let selectedRoom = "";
 
 function getUsers() {
@@ -61,6 +60,7 @@ function updateNav() {
 
         navButtons.innerHTML = `
             <a href="shop.html" class="btn btn-shop">Shop</a>
+            <a href="receipts.html" class="btn btn-shop">Receipts</a>
             <a href="cart.html" class="cart-btn">
                 Cart
                 ${itemCount > 0 ? `<span class="cart-badge">${itemCount}</span>` : ''}
@@ -289,38 +289,18 @@ function changeQty(index, change) {
 }
 
 function initCheckout() {
-    if (!document.getElementById('checkoutBlockStage')) return;
-    selectedBlock = "";
+    // initialize room-only checkout
+    if (!document.getElementById('checkoutForm')) return;
     selectedRoom = "";
-    renderBlockGrid();
-}
-
-function renderBlockGrid() {
-    const grid = document.getElementById('blockGrid');
-    grid.innerHTML = blocks.map(b => `<button class="block-btn ${selectedBlock === b ? 'selected' : ''}" onclick="selectBlock('${b}')">${b}</button>`).join('');
-    document.getElementById('confirmBlockBtn').disabled = !selectedBlock;
-}
-
-function selectBlock(b) {
-    selectedBlock = b;
-    renderBlockGrid();
-}
-
-function confirmBlock() {
-    document.getElementById('checkoutBlockStage').style.display = 'none';
-    document.getElementById('checkoutRoomStage').style.display = 'block';
     renderRoomGrid();
-}
-
-function backToBlockStage() {
-    document.getElementById('checkoutBlockStage').style.display = 'block';
-    document.getElementById('checkoutRoomStage').style.display = 'none';
 }
 
 function renderRoomGrid() {
     const grid = document.getElementById('roomGrid');
+    if (!grid) return;
     grid.innerHTML = rooms.map(r => `<button class="block-btn ${selectedRoom === r ? 'selected' : ''}" onclick="selectRoom('${r}')">${r}</button>`).join('');
-    document.getElementById('confirmRoomBtn').disabled = !selectedRoom;
+    const btn = document.getElementById('confirmRoomBtn');
+    if (btn) btn.disabled = !selectedRoom;
 }
 
 function selectRoom(r) {
@@ -329,16 +309,47 @@ function selectRoom(r) {
 }
 
 function placeOrder() {
-    const cart = getCart();
-    const maxPrepTime = cart.length > 0 ? Math.max(...cart.map(item => item.prepTime), 5) : 5;
+    const user = getCurrentUser();
+    if (!user) {
+        window.location.href = "login.html";
+        return;
+    }
 
+    const cart = getCart();
+    if (!cart || cart.length === 0) return;
+
+    const maxPrepTime = cart.length > 0 ? Math.max(...cart.map(item => item.prepTime), 5) : 5;
+    const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+    const order = {
+        id: 'ord_' + Date.now(),
+        userEmail: user.email,
+        userName: user.fullName,
+        items: cart,
+        room: selectedRoom || null,
+        total: Number(total.toFixed(2)),
+        estimatedTime: maxPrepTime,
+        createdAt: new Date().toISOString()
+    };
+
+    // Save order list in localStorage
+    const orders = JSON.parse(localStorage.getItem('supplycollectOrders') || '[]');
+    orders.push(order);
+    localStorage.setItem('supplycollectOrders', JSON.stringify(orders));
+
+    // Clear cart and update UI
     saveCart([]);
     updateNav();
 
-    document.getElementById('checkoutForm').style.display = 'none';
-    document.getElementById('orderConfirmText').textContent = `Your order will be ready for pickup at Block ${selectedBlock}, Room ${selectedRoom}!`;
-    document.getElementById('estimatedTimeDisplay').textContent = `${maxPrepTime} mins`;
-    document.getElementById('orderConfirmBox').style.display = 'block';
+    // Show confirmation
+    const formEl = document.getElementById('checkoutForm');
+    if (formEl) formEl.style.display = 'none';
+    const confirmText = document.getElementById('orderConfirmText');
+    if (confirmText) confirmText.textContent = `Your order will be ready for pickup in Room ${order.room}!`;
+    const etaEl = document.getElementById('estimatedTimeDisplay');
+    if (etaEl) etaEl.textContent = `${maxPrepTime} mins`;
+    const orderConfirmBox = document.getElementById('orderConfirmBox');
+    if (orderConfirmBox) orderConfirmBox.style.display = 'block';
 }
 
 let toastTimeout;
