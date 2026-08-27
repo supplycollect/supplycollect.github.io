@@ -1,22 +1,22 @@
 const products = {
     stationery: [
-        { name: "Black Pen", price: 1.50, prepTime: 2, image: "https://images.unsplash.com/photo-1578375136339-122fa129408e?w=200&h=200&fit=crop" },
-        { name: "Blue Pen", price: 1.50, prepTime: 2, image: "https://images.unsplash.com/photo-1604258529505-dbe81caea47a?w=200&h=200&fit=crop" },
-        { name: "Red Pen", price: 1.50, prepTime: 2, image: "https://images.unsplash.com/photo-1615069471510-a01a050e59a0?w=200&h=200&fit=crop" },
-        { name: "Eraser", price: 0.80, prepTime: 2, image: "https://images.unsplash.com/photo-1580267355550-e323be2ae537?w=200&h=200&fit=crop" },
-        { name: "Sharpener", price: 1.00, prepTime: 3, image: "https://images.unsplash.com/photo-1580267355550-e323be2ae537?w=200&h=200&fit=crop" },
-        { name: "Ruler", price: 1.20, prepTime: 3, image: "https://images.unsplash.com/photo-1580267355550-e323be2ae537?w=200&h=200&fit=crop" },
-        { name: "Whiteboard Marker", price: 2.00, prepTime: 3, image: "https://images.unsplash.com/photo-1604258529505-dbe81caea47a?w=200&h=200&fit=crop" }
+        { name: "Black Pen", price: 1.50, prepTime: 2, image: "images/black-pen.svg" },
+        { name: "Blue Pen", price: 1.50, prepTime: 2, image: "images/blue-pen.svg" },
+        { name: "Red Pen", price: 1.50, prepTime: 2, image: "images/red-pen.svg" },
+        { name: "Eraser", price: 0.80, prepTime: 2, image: "images/eraser.svg" },
+        { name: "Sharpener", price: 1.00, prepTime: 3, image: "images/sharpener.svg" },
+        { name: "Ruler", price: 1.20, prepTime: 3, image: "images/ruler.svg" },
+        { name: "Whiteboard Marker", price: 2.00, prepTime: 3, image: "images/marker.svg" }
     ],
     rent: [
-        { name: "Scientific Calculator (Rent)", price: 3.00, prepTime: 8, image: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=200&h=200&fit=crop" },
-        { name: "Chromebook Charger (Rent)", price: 2.50, prepTime: 6, image: "https://images.unsplash.com/photo-1591290621749-cd271c5ace3c?w=200&h=200&fit=crop" },
-        { name: "Mouse/Keyboard Set (Rent)", price: 4.00, prepTime: 10, image: "https://images.unsplash.com/photo-1587829191301-4e8bdf21fdb8?w=200&h=200&fit=crop" }
+        { name: "Scientific Calculator (Rent)", price: 3.00, prepTime: 8, image: "images/calculator.svg" },
+        { name: "Chromebook Charger (Rent)", price: 2.50, prepTime: 6, image: "images/charger.svg" },
+        { name: "Mouse/Keyboard Set (Rent)", price: 4.00, prepTime: 10, image: "images/mouse-keyboard.svg" }
     ],
     snacks: [
-        { name: "Orange Juice Box", price: 2.20, prepTime: 4, image: "https://images.unsplash.com/photo-1600788148184-7f99f569e959?w=200&h=200&fit=crop" },
-        { name: "Apple Juice Box", price: 2.20, prepTime: 4, image: "https://images.unsplash.com/photo-1600788148184-7f99f569e959?w=200&h=200&fit=crop" },
-        { name: "Muesli Bar", price: 1.80, prepTime: 3, image: "https://images.unsplash.com/photo-1599599810694-d7e13b97e5ab?w=200&h=200&fit=crop" }
+        { name: "Orange Juice Box", price: 2.20, prepTime: 4, image: "images/orange-juice.svg" },
+        { name: "Apple Juice Box", price: 2.20, prepTime: 4, image: "images/apple-juice.svg" },
+        { name: "Muesli Bar", price: 1.80, prepTime: 3, image: "images/muesli-bar.svg" }
     ]
 };
 
@@ -61,29 +61,14 @@ function updateNav() {
         navButtons.innerHTML = `
             <a href="shop.html" class="btn btn-shop">Shop</a>
             <a href="receipts.html" class="btn btn-shop">Receipts</a>
-            <div class="nav-item">
-                <a href="cart.html" class="cart-btn" onclick="toggleCartMenu(event)">
-                    Cart
-                    ${itemCount > 0 ? `<span class="cart-badge">${itemCount}</span>` : ''}
-                </a>
-                <div class="menu-dropdown" id="cartMenu">
-                    <a class="menu-item" href="cart.html">View Cart</a>
-                    <a class="menu-item" href="shop.html">Shop</a>
-                    <a class="menu-item" href="receipts.html">Receipts</a>
-                </div>
-            </div>
-            <div class="nav-item">
-                <a href="account.html" class="user-bubble" onclick="toggleAccountMenu(event)">
-                    <div class="account-icon">${initial}</div>
-                    ${currentUser.fullName}
-                </a>
-                <div class="menu-dropdown" id="accountMenu">
-                    <a class="menu-item" href="account.html">Account</a>
-                    <a class="menu-item" href="shop.html">Shop</a>
-                    <a class="menu-item" href="receipts.html">Receipts</a>
-                    <button class="menu-item" onclick="signOutAndRedirect()" style="background:none; border:none; text-align:left; padding:0; color:var(--text-main);">Sign Out</button>
-                </div>
-            </div>
+            <a href="cart.html" class="cart-btn">
+                Cart
+                ${itemCount > 0 ? `<span class="cart-badge">${itemCount}</span>` : ''}
+            </a>
+            <a href="account.html" class="user-bubble">
+                <div class="account-icon">${initial}</div>
+                ${currentUser.fullName}
+            </a>
         `;
     } else {
         navButtons.innerHTML = `
@@ -398,40 +383,6 @@ function showToast(message) {
         toast.classList.remove('active');
     }, 2000);
 }
-
-// Nav menu toggle helpers
-function closeAllNavMenus() {
-    const menus = document.querySelectorAll('.menu-dropdown');
-    menus.forEach(m => m.classList.remove('show'));
-}
-
-function toggleCartMenu(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    const el = document.getElementById('cartMenu');
-    if (!el) return;
-    const isShown = el.classList.contains('show');
-    closeAllNavMenus();
-    if (!isShown) el.classList.add('show');
-}
-
-function toggleAccountMenu(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    const el = document.getElementById('accountMenu');
-    if (!el) return;
-    const isShown = el.classList.contains('show');
-    closeAllNavMenus();
-    if (!isShown) el.classList.add('show');
-}
-
-// Close menus when clicking outside
-document.addEventListener('click', (e) => {
-    // if click inside a menu or its button, keep open
-    const target = e.target;
-    if (target.closest && (target.closest('.nav-item') || target.closest('.menu-dropdown'))) return;
-    closeAllNavMenus();
-});
 
 // Ensure nav updates and room grid renders when appropriate
 document.addEventListener("DOMContentLoaded", () => {
