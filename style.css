@@ -74,7 +74,7 @@ nav {
 }
 
 .btn:hover {
-    transform: translateY(-1px);
+    transform: scale(1.1) translateY(-1px);
 }
 
 .btn-login {
@@ -125,7 +125,7 @@ nav {
 
 .cart-btn:hover {
     background-color: rgba(255, 255, 255, 0.1);
-    transform: translateY(-1px);
+    transform: scale(1.1) translateY(-1px);
 }
 
 .cart-badge {
@@ -161,7 +161,7 @@ nav {
 
 .user-bubble:hover {
     background-color: rgba(59, 130, 246, 0.2);
-    transform: translateY(-1px);
+    transform: scale(1.1) translateY(-1px);
 }
 
 .account-icon {
@@ -215,7 +215,7 @@ nav {
 
 .hero button:hover {
     background-color: var(--accent-orange-hover);
-    transform: translateY(-2px);
+    transform: scale(1.1) translateY(-2px);
 }
 
 .fullpage-top {
@@ -311,6 +311,7 @@ button.submit-btn {
 
 button.submit-btn:hover:not(:disabled) {
     background-color: var(--primary-hover);
+    transform: scale(1.1);
 }
 
 button.submit-btn:disabled {
@@ -354,6 +355,7 @@ button.submit-btn:disabled {
 
 .signout-btn:hover {
     background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
 }
 
 .delete-btn {
@@ -371,6 +373,7 @@ button.submit-btn:disabled {
 
 .delete-btn:hover {
     background-color: rgba(220, 38, 38, 0.2);
+    transform: scale(1.1);
 }
 
 .confirm-overlay {
@@ -414,6 +417,10 @@ button.submit-btn:disabled {
     border-radius: 8px;
     cursor: pointer;
     font-weight: 600;
+}
+
+.confirm-buttons button:hover {
+    transform: scale(1.1);
 }
 
 .confirm-cancel { background-color: var(--bg-surface-hover); color: white; }
@@ -523,6 +530,10 @@ button.submit-btn:disabled {
     font-weight: 600;
 }
 
+.add-cart-btn:hover {
+    transform: scale(1.1);
+}
+
 .cart-content {
     max-width: 550px;
     margin: 40px auto;
@@ -575,6 +586,10 @@ button.submit-btn:disabled {
     font-weight: 700;
 }
 
+.qty-controls button:hover {
+    transform: scale(1.1);
+}
+
 .cart-total {
     display: flex;
     justify-content: space-between;
@@ -613,6 +628,10 @@ button.submit-btn:disabled {
     font-size: 1rem;
 }
 
+.block-btn:hover {
+    transform: scale(1.1);
+}
+
 .block-btn.selected {
     background-color: var(--primary);
     border-color: var(--primary);
@@ -640,4 +659,19 @@ button.submit-btn:disabled {
     font-size: 2rem;
     font-weight: 800;
     color: var(--accent-green);
+}
+
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    pointer-events: none;
+    animation: confetti-fall 3s ease-out forwards;
+}
+
+@keyframes confetti-fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
 }

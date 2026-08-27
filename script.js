@@ -308,6 +308,22 @@ function selectRoom(r) {
     renderRoomGrid();
 }
 
+function createConfetti() {
+    const colors = ['#3B82F6', '#F97316', '#10B981', '#60A5FA', '#EA580C', '#4ADE80', '#F59E0B'];
+    const confettiCount = 50;
+
+    for (let i = 0; i < confettiCount; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = Math.random() * 100 + '%';
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.animationDelay = Math.random() * 0.5 + 's';
+        document.body.appendChild(confetti);
+
+        setTimeout(() => confetti.remove(), 3000);
+    }
+}
+
 function placeOrder() {
     const user = getCurrentUser();
     if (!user) {
@@ -341,7 +357,7 @@ function placeOrder() {
     saveCart([]);
     updateNav();
 
-    // Show confirmation
+    // Show confirmation and create confetti
     const formEl = document.getElementById('checkoutForm');
     if (formEl) formEl.style.display = 'none';
     const confirmText = document.getElementById('orderConfirmText');
@@ -350,6 +366,9 @@ function placeOrder() {
     if (etaEl) etaEl.textContent = `${maxPrepTime} mins`;
     const orderConfirmBox = document.getElementById('orderConfirmBox');
     if (orderConfirmBox) orderConfirmBox.style.display = 'block';
+
+    // Trigger confetti
+    createConfetti();
 }
 
 let toastTimeout;
