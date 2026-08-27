@@ -61,14 +61,29 @@ function updateNav() {
         navButtons.innerHTML = `
             <a href="shop.html" class="btn btn-shop">Shop</a>
             <a href="receipts.html" class="btn btn-shop">Receipts</a>
-            <a href="cart.html" class="cart-btn">
-                Cart
-                ${itemCount > 0 ? `<span class="cart-badge">${itemCount}</span>` : ''}
-            </a>
-            <a href="account.html" class="user-bubble">
-                <div class="account-icon">${initial}</div>
-                ${currentUser.fullName}
-            </a>
+            <div class="nav-item">
+                <a href="cart.html" class="cart-btn" onclick="toggleCartMenu(event)">
+                    Cart
+                    ${itemCount > 0 ? `<span class="cart-badge">${itemCount}</span>` : ''}
+                </a>
+                <div class="menu-dropdown" id="cartMenu">
+                    <a class="menu-item" href="cart.html">View Cart</a>
+                    <a class="menu-item" href="shop.html">Shop</a>
+                    <a class="menu-item" href="receipts.html">Receipts</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="account.html" class="user-bubble" onclick="toggleAccountMenu(event)">
+                    <div class="account-icon">${initial}</div>
+                    ${currentUser.fullName}
+                </a>
+                <div class="menu-dropdown" id="accountMenu">
+                    <a class="menu-item" href="account.html">Account</a>
+                    <a class="menu-item" href="shop.html">Shop</a>
+                    <a class="menu-item" href="receipts.html">Receipts</a>
+                    <button class="menu-item" onclick="signOutAndRedirect()" style="background:none; border:none; text-align:left; padding:0; color:var(--text-main);">Sign Out</button>
+                </div>
+            </div>
         `;
     } else {
         navButtons.innerHTML = `
@@ -383,6 +398,40 @@ function showToast(message) {
         toast.classList.remove('active');
     }, 2000);
 }
+
+// Nav menu toggle helpers
+function closeAllNavMenus() {
+    const menus = document.querySelectorAll('.menu-dropdown');
+    menus.forEach(m => m.classList.remove('show'));
+}
+
+function toggleCartMenu(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    const el = document.getElementById('cartMenu');
+    if (!el) return;
+    const isShown = el.classList.contains('show');
+    closeAllNavMenus();
+    if (!isShown) el.classList.add('show');
+}
+
+function toggleAccountMenu(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    const el = document.getElementById('accountMenu');
+    if (!el) return;
+    const isShown = el.classList.contains('show');
+    closeAllNavMenus();
+    if (!isShown) el.classList.add('show');
+}
+
+// Close menus when clicking outside
+document.addEventListener('click', (e) => {
+    // if click inside a menu or its button, keep open
+    const target = e.target;
+    if (target.closest && (target.closest('.nav-item') || target.closest('.menu-dropdown'))) return;
+    closeAllNavMenus();
+});
 
 // Ensure nav updates and room grid renders when appropriate
 document.addEventListener("DOMContentLoaded", () => {
